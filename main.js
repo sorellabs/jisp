@@ -15,7 +15,7 @@ function parse(data){
       , rparen = /\s*\)\s*/g
       , param  = /([\[\],])([^\]\[,]+?)(?=[\[\],])/g
 
-    if(/["\[\]]/.test(data)) error(data)
+    if (/["\[\]]/.test(data)) error(data)
     return JSON.parse(data.trim()
                           .replace(lparen,  '[')      // start sexp
                           .replace(rparen,  ']')      // ends sexp
@@ -252,8 +252,7 @@ function list(){
     return slice.call(arguments)}
 
 var env = 
-    {
-      'abs':     abs
+    { 'abs':     abs
     , 'append':  append
     , 'assoc':   assoc
     , 'atom?':   atomp

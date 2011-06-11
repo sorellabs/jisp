@@ -91,6 +91,11 @@ var default_env = { 'boolean?':   util.booleanp
 
                   , 'max':        numeric.max
                   , 'min':        numeric.min
+
+                  , '+':          numeric.sum
+                  , '-':          numeric.sub
+                  , '*':          numeric.mul
+                  , '/':          numeric.div
                   }
 
 //// -Exports //////////////////////////////////////////////////////////////////

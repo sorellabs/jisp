@@ -113,10 +113,10 @@ function zip(keys, values) {
 // Reduce left -> right
 function foldl(seq, fn, start) {
     seq   = list.apply(this, seq)
-    start = start == null? car(seq)
-                         : start
+    start = seq.length == 1? start
+                           : seq.shift()
 
-    return cdr(seq).reduce(fn, start) }
+    return seq.reduce(fn, start) }
 
 // Array#every
 function all(seq, fn) {

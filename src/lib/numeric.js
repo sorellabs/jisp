@@ -21,6 +21,7 @@ function numberp(obj) {
 function integerp(obj) {
     return parseInt(obj, 10) === parseInt(obj, 10) }
 
+
 // Comparisons
 function equalp() {
     return all_pair(arguments, function(l, r) {
@@ -41,6 +42,7 @@ function less_or_eqp() {
 function greater_or_eqp() {
     return all_pair(arguments, function(l, r) {
         return l >= r }, true) }
+
 
 // Value checking
 function zerop(obj) {
@@ -67,12 +69,31 @@ function infinitep(obj) {
 function nanp(obj) {
     return isNaN(obj) }
 
+
 // Max/min
 function max() {
     return Math.max.apply(this, arguments) }
 
 function min() {
     return Math.min.apply(this, arguments) }
+
+
+// General arithmetic operations
+function sum() {
+    return foldl(arguments, function(l, r) {
+        return l + r }, 0)}
+
+function sub() {
+    return foldl(arguments, function(l, r) {
+        return l - r }, 0)}
+
+function div() {
+    return foldl(arguments, function(l, r) {
+        return l / r }, 1)}
+
+function mul() {
+    return foldl(arguments, function(l, r) {
+        return l * r }, 1)}
 
 
 //// -Exports //////////////////////////////////////////////////////////////////
@@ -95,4 +116,9 @@ module.exports = { numberp:  numberp
                  
                  , max: max
                  , min: min
+
+                 , sum: sum
+                 , sub: sub
+                 , mul: mul
+                 , div: div
                  }

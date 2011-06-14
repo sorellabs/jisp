@@ -14,6 +14,7 @@ var parser    = require('./parser')
   , core      = require('./lib/core')
   , numeric   = require('./lib/numeric')
   , bool      = require('./lib/boolean')
+  , list      = require('./lib/list')
 
   , clone     = util.clone
 
@@ -51,12 +52,8 @@ Jisp.prototype = function() {
 }()
 
 //// -Default environment //////////////////////////////////////////////////////
-var default_env = { 'boolean?':   util.booleanp
-                  , 'pair?':      util.pairp
-                  , 'symbol?':    util.quotedp
-                  , 'number?':    util.numberp
+var default_env = { 'symbol?':    util.quotedp
                   , 'procedure?': util.procp
-                  , 'null?':      util.nullp
 
                   // Syntax
                   , '#f':   false
@@ -124,16 +121,27 @@ var default_env = { 'boolean?':   util.booleanp
                   , 'not':        bool.not
                   , 'boolean?':   bool.booleanp
                   , 'boolean=?':  bool.boolean_eqp
+
+                  // Lists
+                  , 'pair?':      list.pairp
+                  , 'list?':      list.listp
+                  , 'null?':      list.nullp
+
+                  , 'cons':       list.cons
+                  , 'list':       list.list
+                  , 'car':        list.car
+                  , 'cdr':        list.cdr
+
+                  , 'length':     list.length
+                  , 'append':     list.append
+                  , 'reverse':    list.reverse
+                  , 'list-tail':  list.list_tail
+                  , 'list-ref':   list.list_ref
+                  
+                  , 'map':        list.map
+                  , 'for-each':   list.for_each
                   }
 
 //// -Exports //////////////////////////////////////////////////////////////////
 module.exports = { Jisp: Jisp
                  , env:  default_env }
-
-/*
-boolean?          pair?
-symbol?           number?
-char?             string?
-vector?           procedure?
-null?
-*/

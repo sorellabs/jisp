@@ -13,6 +13,7 @@ var parser    = require('./parser')
   // Libraries
   , core      = require('./lib/core')
   , numeric   = require('./lib/numeric')
+  , bool      = require('./lib/boolean')
 
   , clone     = util.clone
 
@@ -118,6 +119,11 @@ var default_env = { 'boolean?':   util.booleanp
 
                   , 'sqrt':       Math.sqrt
                   , 'expt':       Math.pow
+
+                  // Boolean
+                  , 'not':        bool.not
+                  , 'boolean?':   bool.booleanp
+                  , 'boolean=?':  bool.boolean_eqp
                   }
 
 //// -Exports //////////////////////////////////////////////////////////////////

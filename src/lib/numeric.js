@@ -96,6 +96,29 @@ function mul() {
         return l * r }, 1)}
 
 
+// Integer division
+function div_and_mod(x1, x2) {
+    return [ div(x1, x2)
+           , mod0(x1, x2) ] }
+
+function div0(x1, x2) {
+    return Math.round(x1 / x2) }
+
+function mod0(x1, x2) {
+    return x1 % x2 }
+
+
+function truncate(x) {
+    return parseInt(x, 10) }
+
+function atan(x, y) {
+    return y == null? Math.atan(x)
+                    : Math.atan2(x, y) }
+
+// TODO: gdc, lcm, numerator, denominator
+
+
+
 //// -Exports //////////////////////////////////////////////////////////////////
 module.exports = { numberp:  numberp
                  , integerp: integerp
@@ -121,4 +144,12 @@ module.exports = { numberp:  numberp
                  , sub: sub
                  , mul: mul
                  , div: div
+
+                 , div0:        div0
+                 , mod0:        mod0
+                 , div_and_mod: div_and_mod
+
+                 , truncate:    truncate
+
+                 , atan:        atan
                  }

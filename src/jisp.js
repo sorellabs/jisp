@@ -96,6 +96,28 @@ var default_env = { 'boolean?':   util.booleanp
                   , '-':          numeric.sub
                   , '*':          numeric.mul
                   , '/':          numeric.div
+
+                  , 'div':         numeric.div0
+                  , 'mod':         numeric.mod0
+                  , 'div_and_mod': numeric.div_and_mod
+                  
+                  , 'abs':        Math.abs
+                  , 'floor':      Math.floor
+                  , 'ceiling':    Math.ceil
+                  , 'round':      Math.round
+                  , 'truncate':   numeric.truncate
+
+                  , 'exp':        Math.exp
+                  , 'log':        Math.log
+                  , 'sin':        Math.sin
+                  , 'cos':        Math.cos
+                  , 'tan':        Math.tan
+                  , 'asin':       Math.asin
+                  , 'acos':       Math.acos
+                  , 'atan':       numeric.atan
+
+                  , 'sqrt':       Math.sqrt
+                  , 'expt':       Math.pow
                   }
 
 //// -Exports //////////////////////////////////////////////////////////////////
